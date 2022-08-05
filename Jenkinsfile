@@ -41,7 +41,7 @@ pipeline {
     }
     post { 
         success { 
-            echo 'Thank You. Your Ticket has been created..'
+            echo 'Thank You. We have received your Ticket.Our Agent will contact you in a while.'
         }
     }
 }
