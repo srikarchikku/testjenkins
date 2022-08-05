@@ -1,18 +1,47 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build') {
-           
+        stage ('Welcome') {
+            input {
+                message "Enter your Name.."
+                ok "Proceed"
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'NAME', defaultValue: '', description: 'Please enter your name')
+                }
+            }
             steps {
-                echo "Creating the ticket..."
-                sh 'curl -v -u $apikey:X -H "Content-Type: application/json" -d \'{ "description": "Ticket from Jenkins", "subject": "Raised from Jenkins", "email": "clboone@freshdesk.com", "priority": 1, "status": 2, "source": 3 }\' -X POST \'https://srikartest1.freshpo.com/api/v2/tickets\''
-              
+                echo "Welcome ${NAME}.. Hope you provided the Required Information"
+            }
+            
+        }
+        stage('Create') {
+            steps {
+                script {
+                    CREATE = sh (
+                        script: 'echo "curl -v -u $apikey:X -H \\"Content-Type: application/json\\" -d \' { \\"description\\": \\" $Description\\", \\"subject\\": \\" $Title\\", \\"email\\": \\" $Email\\", \\"priority\\": $Priority, \\"status\\": $Status}\' -X POST \'https://$domain_name/api/v2/tickets\'" | python -m json.tool',
+                        returnStdout: true
+                    )
+                    sh "$CREATE"
+                }
+            }
+        }
+        stage('View Ticket') {
+            steps {
+                script {
+                    TICKET = sh (
+                        script: 'echo "curl -v -u $apikey:X -X GET \'https://$domain_name/api/v2/tickets?per_page=1&include=description\' | python -m json.tool"',
+                        returnStdout: true
+                    )
+                    sh "$TICKET"
+                }
             }
         }
     }
     post { 
         success { 
-            echo 'Ticket Has been Created Successfully'
+            echo 'Thank You. Your Ticket has been created..'
         }
     }
 }
