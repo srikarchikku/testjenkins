@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     CREATE = sh (
-                        script: 'echo "curl -v -u $apikey:X -H \\"Content-Type: application/json\\" -d \' { \\"description\\": \\" $Description\\", \\"subject\\": \\" $Title\\", \\"email\\": \\" $Email\\", \\"priority\\": $Priority, \\"status\\": $Status}\' -X POST \'https://$domain_name/api/v2/tickets\'" | python -m json.tool',
+                        script: 'echo "curl -v -u $apikey:X -H \\"Content-Type: application/json\\" -d \' { \\"description\\": \\" $Description\\", \\"subject\\": \\" $Title\\", \\"email\\": \\" $Email\\", \\"priority\\": $Priority, \\"status\\": $Status}\' -X POST \'https://$domain_name/api/v2/tickets\' | python -m json.tool"',
                         returnStdout: true
                     )
                     sh "$CREATE"
