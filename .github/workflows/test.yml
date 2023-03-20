@@ -24,7 +24,7 @@ jobs:
       - name: Create tag
         uses: simpleactions/create-tag@v1.0.0
         with:
-           github_token: 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
+           github_token: "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"
            tag: FCH22.02.1
            message: Creating release tag
       
