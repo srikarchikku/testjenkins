@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: rohmanngmbh/action-checkout-repo@v1.3.4
         with:
-           repository: testjenkins
+           repository: srikarchikku/testjenkins
       - name: Create tag
         uses: simpleactions/create-tag@v1.0.0
         with:
