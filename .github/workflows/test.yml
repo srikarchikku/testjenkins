@@ -20,7 +20,8 @@ jobs:
       - name: Checkout code
         uses: rohmanngmbh/action-checkout-repo@v1.3.4
         with:
-           repository: srikarchikku/testjenkins/check
+           repository: srikarchikku/testjenkins
+           branch: check
       - name: Create tag
         uses: simpleactions/create-tag@v1.0.0
         env:
