@@ -18,7 +18,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
-        run: git checkout master
+        uses: rohmanngmbh/action-checkout-repo@v1.3.4
+        with:
+           repository: testjenkins
       - name: Create tag
         uses: simpleactions/create-tag@v1.0.0
         with:
