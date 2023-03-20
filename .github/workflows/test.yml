@@ -18,9 +18,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
-        uses: actions/checkout@v2
+        run: git checkout master
       - name: Create tag
-        run: git tag -a FCH22.02.1 -m "Release version 1.0"
-        env:
-          GITHUB_TOKEN: "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"
+        uses: simpleactions/create-tag@v1.0.0
+        with:
+           github_token: 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
+           tag: FCH22.02.1
+           message: Creating release tag
       
