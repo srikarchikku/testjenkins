@@ -28,16 +28,15 @@ jobs:
      - name: Print Input Parameter
        run: echo "'${{inputs.release_version}}'"
      - name: Trigger jenkins 
-       uses: jabbukka/jenkins-trigger@main
+       uses: toptal/jenkins-job-trigger-action@master
        with:
-        url: "https://freshchat-staging.runwayci.com"
+        jenkins_url: "https://freshchat-staging.runwayci.com"
+        jenkins_user: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
+        jenkins_token: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
         job_name: "FCH-release-version-creation"
-        user_name: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
-        api_token: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
-        parameter: |
+        job_params: |
           { "RELEASE_VERSION": "FCH22.10.22" }
-        headers: |
-          {"Accept": "application/json"}
+        async: true
    
    
   
