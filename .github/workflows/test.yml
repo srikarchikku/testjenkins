@@ -28,15 +28,13 @@ jobs:
      - name: Print Input Parameter
        run: echo "'${{inputs.release_version}}'"
      - name: Trigger jenkins 
-       uses: peter-evans/http-request@v2.2.1
+       uses: shihyuho/go-jenkins-trigger@v1
        with:
-        url: 'http://localhost:8080/job/Check_Job/buildWithParameters'
-        method: 'POST'
-        auth-type: 'basic'
-        username: ${{ secrets.JENKINS_USERNAME }}
-        password: ${{ secrets.JENKINS_PASSWORD }}
-        body: |
-          RELEASE_NAME= ${{inputs.release_version}}
+        jenkins-url: 'https://freshchat-staging.runwayci.com'
+        jenkins-user: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
+        jenkins-pat: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
+        job: 'FCH-release-version-creation'
+        params: RELEASE_NAME=${{ inputs.release_version }}
    
    
   
