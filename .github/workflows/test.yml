@@ -35,7 +35,7 @@ jobs:
         user_name: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
         api_token: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
         parameter: |
-          { "RELEASE_VERSION": "${{inputs.release_version}}" }
+          { "RELEASE_VERSION": "FCH22.10.22" }
         headers: |
           {"Accept": "application/json"}
    
