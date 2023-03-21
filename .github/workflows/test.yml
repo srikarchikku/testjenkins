@@ -9,5 +9,19 @@ on:
         description: 'Enter a value for my_input'
         required: true
         default: 'default value'
-       
+        
+jobs:
+   build:
+     
+     runs-on: ubuntu-latest
+     
+     steps:
+     - name: checkout
+       uses: rohmanngmbh/action-checkout-repo@v1.3.4
+       with:
+         repository: srikarchikku/testjenkins
+   
+   
+  
+  
       
