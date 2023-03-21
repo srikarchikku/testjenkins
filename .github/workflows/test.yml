@@ -27,6 +27,16 @@ jobs:
          repository: srikarchikku/testjenkins
      - name: Print Input Parameter
        run: echo "'${{inputs.release_version}}'"
+     - name: Trigger jenkins 
+       uses: peter-evans/http-request@v2.2.1
+       with:
+        url: 'http://localhost:8080/job/Check_Job/buildWithParameters'
+        method: 'POST'
+        auth-type: 'basic'
+        username: ${{ secrets.JENKINS_USERNAME }}
+        password: ${{ secrets.JENKINS_PASSWORD }}
+        body: |
+          RELEASE_NAME= ${{inputs.release_version}}
    
    
   
