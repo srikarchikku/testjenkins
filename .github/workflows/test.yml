@@ -34,7 +34,7 @@ jobs:
         jenkins-user: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
         jenkins-pat: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
         job: 'FCH-release-version-creation'
-        params: RELEASE_NAME=${{ inputs.release_version }}
+        params: RELEASE_VERSION=${{ inputs.release_version }}
    
    
   
