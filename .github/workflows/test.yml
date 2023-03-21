@@ -5,10 +5,15 @@ name: My Workflow
 on:
   workflow_dispatch:
     inputs:
-      my_input:
-        description: 'Enter a value for my_input'
+      release_version:
+        description: 'Enter Version'
         required: true
         default: 'default value'
+      traffic_color:
+        description: 'Enter colour'
+        required: true
+        default: 'green'
+        
         
 jobs:
    build:
@@ -20,6 +25,8 @@ jobs:
        uses: rohmanngmbh/action-checkout-repo@v1.3.4
        with:
          repository: srikarchikku/testjenkins
+     - name: Print Input Parameter
+       run: echo "${{my_input}}"
    
    
   
