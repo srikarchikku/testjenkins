@@ -30,12 +30,12 @@ jobs:
      - name: Trigger jenkins 
        uses: toptal/jenkins-job-trigger-action@master
        with:
-        jenkins_url: "https://freshchat-staging.runwayci.com"
-        jenkins_user: ${{ secrets.FRESHCHAT_JENKINS_USERNAME }}
-        jenkins_token: ${{ secrets.FRESHCHAT_JENKINS_TOKEN }}
-        job_name: "FCH-release-version-creation"
+        jenkins_url: "http://localhost:8080/"
+        jenkins_user: ${{ secrets.JENKINS_USERNAME }}
+        jenkins_token: ${{ secrets.JENKINS_API_TOKEN }}
+        job_name: "Check_Job"
         job_params: |
-          { "RELEASE_VERSION": "FCH22.10.22" }
+          { "RELEASE_NAME": "FCH22.10.22" }
         async: true
    
    
