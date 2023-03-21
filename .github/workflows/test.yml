@@ -26,7 +26,7 @@ jobs:
        with:
          repository: srikarchikku/testjenkins
      - name: Print Input Parameter
-       run: echo "${{release_version}}"
+       run: echo "'${{inputs.release_version}}'"
    
    
   
