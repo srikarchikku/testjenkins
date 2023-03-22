@@ -29,15 +29,14 @@ jobs:
        run: echo "'${{inputs.release_version}}'"
             echo "'${{secrets.JENKINS_USERNAME}}'"
      - name: Trigger jenkins 
-       uses: joshlk/jenkins-githubaction@V0.0.1
+       uses: dkershner6/post-api-call-action@v1
        with:
-        url: "http://localhost:8080/job"
-        username: ${{ secrets.JENKINS_USERNAME }}
-        api_token: ${{ secrets.JENKINS_API_TOKEN }}
-        job_name: "Check_Job"
-        parameters: |
-          { "RELEASE_NAME": "FCH22.10.22" }
-        interval: 20
+        url: "http://localhost:8080/job/Check_Job/buildWithParameters"
+        data: RELEASE_NAME=FCH22.10.22
+        headers: |
+          {"Content-Type":"application/x-www-form-urlencoded",
+           "Authorization":"pinnasrikar:1164fb78ee58310479cc4cd93c61e851c2"
+          }
    
    
   
