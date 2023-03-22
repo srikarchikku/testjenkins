@@ -27,16 +27,17 @@ jobs:
          repository: srikarchikku/testjenkins
      - name: Print Input Parameter
        run: echo "'${{inputs.release_version}}'"
+            echo "'${{secrets.JENKINS_USERNAME}}'"
      - name: Trigger jenkins 
-       uses: toptal/jenkins-job-trigger-action@master
+       uses: joshlk/jenkins-githubaction@V0.0.1
        with:
-        jenkins_url: "http://localhost:8080/"
-        jenkins_user: ${{ secrets.JENKINS_USERNAME }}
-        jenkins_token: ${{ secrets.JENKINS_API_TOKEN }}
+        url: "http://localhost:8080/job"
+        username: ${{ secrets.JENKINS_USERNAME }}
+        api_token: ${{ secrets.JENKINS_API_TOKEN }}
         job_name: "Check_Job"
-        job_params: |
+        parameters: |
           { "RELEASE_NAME": "FCH22.10.22" }
-        async: true
+        interval: 20
    
    
   
