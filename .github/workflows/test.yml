@@ -31,7 +31,7 @@ jobs:
      - name: Trigger jenkins 
        uses: appleboy/jenkins-action@master
        with:
-        url: "http://localhost:8080.com"
+        url: "http://localhost:8080"
         user: "pinnasrikar"
         token: ${{ secrets.JENKINS_API_TOKEN }}
         job: "Check_Job"
