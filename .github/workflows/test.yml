@@ -30,7 +30,7 @@ jobs:
             echo "'${{secrets.JENKINS_USERNAME}}'"
      - name: Trigger jenkins 
        uses: appleboy/jenkins-action@master
-        with:
+       with:
         url: "http://localhost:8080.com"
         user: "pinnasrikar"
         token: ${{ secrets.JENKINS_API_TOKEN }}
