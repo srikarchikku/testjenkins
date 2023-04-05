@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Welcome') {
             steps {
-                echo "Welcome ${NAME}.. Hope you provided the Required Information"
+                echo "Welcome.. Hope you provided the Required Information"
             }            
         }
     }
