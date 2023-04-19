@@ -31,7 +31,7 @@ jobs:
      - name: Trigger jenkins 
        run: |
         curl -X POST \
-          -u ${{secrets.JENKINS_USERNAME}}:${{secrets.JENKINS_API_TOKEN}} \ # Replace with your Jenkins username and API token
+          -u pinnasrikar:1164fb78ee58310479cc4cd93c61e851c2 \ # Replace with your Jenkins username and API token
           -H "Content-Type: application/json" \
           -d '{
             "parameter": [
