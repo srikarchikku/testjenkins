@@ -29,14 +29,16 @@ jobs:
        run: echo "'${{inputs.release_version}}'"
             echo "'${{secrets.JENKINS_USERNAME}}'"
      - name: Trigger jenkins 
-       uses: appleboy/jenkins-action@master
-       with:
-        url: "http://localhost:8080"
-        user: "pinnasrikar"
-        token: ${{ secrets.JENKINS_API_TOKEN }}
-        job: "Check_Job"
-   
-   
+       run: |
+        curl -X POST \
+          -u ${{secrets.JENKINS_USERNAME}}:${{secrets.JENKINS_API_TOKEN}} \ # Replace with your Jenkins username and API token
+          -H "Content-Type: application/json" \
+          -d '{
+            "parameter": [
+              {"RELEASE_NAME": "FCH22.05.1"}
+            ]
+          }' \
+          http://localhost:8080/job/Check_Job/buildWithParameters 
   
   
       
