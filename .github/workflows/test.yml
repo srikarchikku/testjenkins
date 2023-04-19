@@ -31,11 +31,11 @@ jobs:
      - name: Trigger jenkins 
        run: |
         curl -X POST \
-          -u pinnasrikar:1164fb78ee58310479cc4cd93c61e851c2 \ # Replace with your Jenkins username and API token
-          -H "Content-Type: application/json" \
+          -H "Content-Type: application/json" \ # Replace with your Jenkins username and API token
+          -H "Authorization: Basic cGlubmFzcmlrYXI6MTE5ZDMyZTYwODM3NWFiYTg1MDdlMDU4ZWNlNzFhZDQ5Nw==" \
           -d '{
             "parameter": [
-              {"RELEASE_NAME": "FCH22.05.1"}
+              {"name": "RELEASE_NAME", "value": "FCH22.01.3"}
             ]
           }' \
           http://localhost:8080/job/Check_Job/buildWithParameters 
