@@ -31,14 +31,14 @@ jobs:
      - name: Trigger jenkins 
        run: |
         curl -X POST \
-          -H "Content-Type: application/json" \ # Replace with your Jenkins username and API token
-          -H "Authorization: Basic cGlubmFzcmlrYXI6MTE5ZDMyZTYwODM3NWFiYTg1MDdlMDU4ZWNlNzFhZDQ5Nw==" \
+          -H "Content-Type: application/json" \ 
+          -H "Authorization: Basic cGlubmEuc3Jpa2FyMUBmcmVzaHdvcmtzLmNvbToxMTY5MDMxNDA1OWI2ZWE2ZWM1YTI1Mzk0M2RhODU5NzYx" \
           -d '{
             "parameter": [
               {"name": "RELEASE_NAME", "value": "FCH22.01.3"}
             ]
           }' \
-          http://localhost:8080/job/Check_Job/buildWithParameters 
+          https://freshchat-staging.runwayci.com/job/Dummy_job/buildWithParameters 
   
   
       
