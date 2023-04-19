@@ -30,15 +30,15 @@ jobs:
             echo "'${{secrets.JENKINS_USERNAME}}'"
      - name: Trigger jenkins 
        run: |
-        curl \
-          -H "Content-Type: application/json" \ 
-          -H "Authorization: Basic cGlubmEuc3Jpa2FyMUBmcmVzaHdvcmtzLmNvbToxMTY5MDMxNDA1OWI2ZWE2ZWM1YTI1Mzk0M2RhODU5NzYx" \
-          -d '{
-            "parameter": [
-              {"name": "RELEASE_NAME", "value": "FCH22.01.3"}
-            ]
-          }' \
-          https://freshchat-staging.runwayci.com/job/Dummy_job/buildWithParameters 
+         curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Basic cGlubmEuc3Jpa2FyMUBmcmVzaHdvcmtzLmNvbToxMTY5MDMxNDA1OWI2ZWE2ZWM1YTI1Mzk0M2RhODU5NzYx" \
+            -d '{
+              "parameter": [
+                {"name": "RELEASE_NAME", "value":"FCH22.10.2" }
+              ]
+            }' \
+            https://freshchat-staging.runwayci.com/job/Dummy_job/buildWithParameters
   
   
       
